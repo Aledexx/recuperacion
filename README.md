@@ -110,7 +110,14 @@ sudo systemctl restart apache2
 
 
 sudo mysql
-![Texto alternatiu](sudo mykl.png)
+![Texto alternatiu](sudomykl.png)
 
+Tendras que continuar con estos comandos
+CREATE DATABASE bbdd;
+CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+exit
+
+![Texto alternatiu](100)
 
 
