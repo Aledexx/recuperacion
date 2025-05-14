@@ -106,10 +106,11 @@ sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd p
 ![Texto alternatiu](larga.png)
 
 sudo systemctl restart apache2
-![Texto alternatiu]()
+![Texto alternatiu](error.png)
 
 
-
+sudo mysql
+![Texto alternatiu](sudo mykl.png)
 
 
 
