@@ -140,7 +140,7 @@ sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd p
 sudo systemctl restart apache2
 ```
 
-![Texto alternatiu](error.png)
+![Texto alternatiu](segunda.png)
 
 ### Pas 7: Configurar base de dades a MySQL
 
@@ -148,7 +148,7 @@ sudo systemctl restart apache2
 sudo mysql
 ```
 
-![Texto alternatiu](sudomykl.png)
+![Texto alternatiu](primera.png)
 
 Un cop dins de MySQL, executar les següents comandes:
 
