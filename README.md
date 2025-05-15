@@ -1,8 +1,11 @@
-#  Manual d'Instal·lació d'una Aplicació Web amb Apache2, MySQL i PHP
+# Manual d'Instal·lació d'una Aplicació Web amb Apache2, MySQL i PHP
 
 Aquest manual descriu el procés per instal·lar una aplicació web dins d'un contenidor Linux (o màquina virtual) utilitzant Apache, MySQL i PHP, amb la configuració i permisos adequats.
 
 ---
+
+Tindràs que crear una màquina a IsardVDI per poder fer-ho  
+![Texto alternatiu](deb.png)
 
 ## 1 Instal·lació de PHP 7.4 a Ubuntu 24.04
 
@@ -86,20 +89,16 @@ sudo service apache2 restart
 
 ---
 
-## 2️⃣ Instal·lació d'ownCloud
+## 2 Instal·lació d'ownCloud
 
 ### Pas 1: Actualitzar el sistema
 
 ```bash
 sudo apt update
-```
-
-![Texto alternatiu](1.1.png)
-
-```bash
 sudo apt upgrade
 ```
 
+![Texto alternatiu](1.1.png)  
 ![Texto alternatiu](2.1.png)
 
 ### Pas 2: Instal·lar Apache2
@@ -150,16 +149,12 @@ sudo mysql
 
 ![Texto alternatiu](primera.png)
 
-Un cop dins de MySQL, executar les següents comandes:
-
 ```sql
 CREATE DATABASE bbdd;
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 GRANT ALL ON bbdd.* TO 'usuario'@'localhost';
 exit
 ```
-
-! 
 
 ---
 
@@ -172,7 +167,35 @@ sudo unzip app-web.zip
 sudo cp -R app-web/. /var/www/html
 sudo rm -rf app-web/
 sudo rm -rf /var/www/html/index.html
-sudo rm -rf /var/www/html/index.html
 ```
 
 ![Texto alternatiu](99.png)
+
+---
+
+## 4 Configuració d'ownCloud
+
+Inicia sessió amb les dades creades anteriorment (usuari i base de dades configurats a MySQL)  
+![Texto alternatiu](12.png)
+
+Després demanarà confirmar de nou la configuració  
+![Texto alternatiu](13.png)
+
+Clica el botó "+" a l'esquerra per pujar arxius o crear carpetes  
+![Texto alternatiu](1o.png)  
+![Texto alternatiu](2o.png)  
+![Texto alternatiu](4o.png)
+
+Per crear usuaris amb rols, clica la icona del perfil (dalt a la dreta), selecciona "Usuaris", i afegeix:
+
+- Administrador
+- Editor
+- Visualitzador
+
+![Texto alternatiu](5o.png)
+
+Per configurar la compartició, torna a la icona del perfil → Configuració → a la barra esquerra busca "Compartits" i configura la política de compartició.
+
+![Texto alternatiu](6o.png)
+
+---
