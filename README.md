@@ -120,4 +120,12 @@ exit
 
 ![Texto alternatiu](100)
 
+Y tambien tendras que poner estos:
 
+sudo cp ~/Baixades/app-web.zip /var/www/html
+cd /var/www/html
+sudo unzip app-web.zip
+sudo cp -R app-web/. /var/www/html
+sudo rm -rf app-web/
+sudo rm -rf /var/www/html/index.html
+sudo rm -rf /var/www/html/index.html
