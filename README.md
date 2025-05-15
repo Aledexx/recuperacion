@@ -1,10 +1,10 @@
-# 📘 Manual d'Instal·lació d'una Aplicació Web amb Apache2, MySQL i PHP
+#  Manual d'Instal·lació d'una Aplicació Web amb Apache2, MySQL i PHP
 
-Aquest manual descriu el procés per instal·lar una aplicació web dins d'un contenidor Linux (o màquina virtual) utilitzant **Apache2**, **MySQL** i **PHP**, amb la configuració i permisos adequats.
+Aquest manual descriu el procés per instal·lar una aplicació web dins d'un contenidor Linux (o màquina virtual) utilitzant Apache, MySQL i PHP, amb la configuració i permisos adequats.
 
 ---
 
-## 1️⃣ Instal·lació de PHP 7.4 a Ubuntu 24.04
+## 1 Instal·lació de PHP 7.4 a Ubuntu 24.04
 
 ### Pas 1: Instal·lar els requisits previs de PPA
 
@@ -84,44 +84,88 @@ sudo service apache2 restart
 
 ![Texto alternatiu](9.png)
 
+---
 
-Ahora la instalación de owncloud
+## 2️⃣ Instal·lació d'ownCloud
 
+### Pas 1: Actualitzar el sistema
+
+```bash
 sudo apt update
+```
+
 ![Texto alternatiu](1.1.png)
 
+```bash
 sudo apt upgrade
+```
+
 ![Texto alternatiu](2.1.png)
 
+### Pas 2: Instal·lar Apache2
+
+```bash
 sudo apt install -y apache2
+```
+
 ![Texto alternatiu](3.1.png)
 
+### Pas 3: Instal·lar MySQL
+
+```bash
 sudo apt install -y mysql-server
+```
+
 ![Texto alternatiu](4.1.png)
 
+### Pas 4: Instal·lar PHP i els mòduls bàsics
+
+```bash
 sudo apt install -y php libapache2-mod-php
+```
+
 ![Texto alternatiu](5.1.png)
 
+### Pas 5: Instal·lar extensions necessàries per ownCloud
+
+```bash
 sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+```
+
 ![Texto alternatiu](larga.png)
 
+### Pas 6: Reiniciar el servei Apache2
+
+```bash
 sudo systemctl restart apache2
+```
+
 ![Texto alternatiu](error.png)
 
+### Pas 7: Configurar base de dades a MySQL
 
+```bash
 sudo mysql
+```
+
 ![Texto alternatiu](sudomykl.png)
 
-Tendras que continuar con estos comandos
+Un cop dins de MySQL, executar les següents comandes:
+
+```sql
 CREATE DATABASE bbdd;
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+GRANT ALL ON bbdd.* TO 'usuario'@'localhost';
 exit
+```
 
-![Texto alternatiu](100)
+! 
 
-Y tambien tendras que poner estos:
+---
 
+## 3 Desplegar l'aplicació web a /var/www/html
+
+```bash
 sudo cp ~/Baixades/app-web.zip /var/www/html
 cd /var/www/html
 sudo unzip app-web.zip
@@ -129,4 +173,6 @@ sudo cp -R app-web/. /var/www/html
 sudo rm -rf app-web/
 sudo rm -rf /var/www/html/index.html
 sudo rm -rf /var/www/html/index.html
-![Texto alternatiu](99.png) 
+```
+
+![Texto alternatiu](99.png)
